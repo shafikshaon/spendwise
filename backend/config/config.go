@@ -7,7 +7,8 @@ import (
 )
 
 type Config struct {
-	Server Server
+	Server   Server
+	Database Database
 }
 
 func Load() (*Config, error) {
@@ -23,7 +24,8 @@ func Load() (*Config, error) {
 	}
 
 	cfg := &Config{
-		Server: LoadServer(v),
+		Server:   LoadServer(v),
+		Database: LoadDatabase(v),
 	}
 
 	return cfg, nil
