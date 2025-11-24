@@ -9,6 +9,7 @@ import (
 type Config struct {
 	Server   Server
 	Database Database
+	Redis    Redis
 }
 
 func Load() (*Config, error) {
@@ -26,6 +27,7 @@ func Load() (*Config, error) {
 	cfg := &Config{
 		Server:   LoadServer(v),
 		Database: LoadDatabase(v),
+		Redis:    LoadRedis(v),
 	}
 
 	return cfg, nil
